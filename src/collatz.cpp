@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
 
 int main(void) {
     long int n {};
-    cout << "Enter N: ";
-    cin >> n;
-    cout << n;
+    std::cout << "Enter N: ";
+    std::cin >> n;
+    std::cout << n;
     while ( n != 1 ) {
         if ( n % 2 == 0 ) {
             n = n/2;
@@ -13,9 +12,9 @@ int main(void) {
         } else {
             n = 3*n + 1;
         }
-        cout << " " << n;
+        std::cout << " " << n;
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
 

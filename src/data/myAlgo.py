@@ -1,10 +1,11 @@
+# plotting straght line with grediant of colatger sequence
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import numpy as np
 
-x = []
+m = []
 time = []
-x_l = []
-y_l = []
+x = np.linspace(0, 1000, 1000)
 
 def collatz(collatz, time_list, n):
     i = 0
@@ -21,15 +22,14 @@ def collatz(collatz, time_list, n):
     return [collatz, time_list]
 
 n = int(input('Enter n: '))
-pf = collatz(x, time, n)
+pf = collatz(m, time, n)
 
-fig, ax = plt.subplots()
-
-def xplot(i):
-    x_l.append(pf[1][i])
-    y_l.append(pf[0][i])
-    ax.clear()
-    ax.plot(x_l, y_l)
-
-ani = FuncAnimation(fig, xplot, frames=2000000, interval=100, repeat=False)
+for i in range(len(pf[0])):
+    y = []
+    for j in range(len(x)):
+        m = pf[0][i]*np.log(x[j]) + pf[1][i]
+        y.append(m)
+    plt.plot(x, y)
+plt.plot(pf[1],pf[0])
 plt.show()
+
